@@ -130,8 +130,8 @@ class Question(models.Model):
 class Choice(models.Model):
     question_id = models.ManyToManyField('Question')
     choice_text = models.CharField(max_length=1000)
-    CORRECT = True
-    INCORRECT = False
+    CORRECT = 'True'
+    INCORRECT = 'False'
     QUESTION_STATUS = [
         (CORRECT, 'Correct'),
         (INCORRECT, 'Incorrect')

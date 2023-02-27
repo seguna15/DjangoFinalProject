@@ -76,14 +76,14 @@
             -->
 
             <!-- A choice submission form example -->
-            {% if user.is_authenticated %}
-            <form id="questionform" action="point to a submit view" method="post">
-                        {% for question in course %}
+           
+            <form id="questionform" action="submit/" method="post">
+                        {% for question in course.question_set.all %}
                         <div class="card mt-1">
                             <div class="card-header"><h5>{{ question.question_text}}</h5></div>
                             {% csrf_token %}
                             <div class="form-group">
-                                {% for choice in question %}
+                                {% for choice in question.choice_set.all %}
                                 <div class="form-check">
                                     <label class="form-check-label">
                                         <input type="checkbox" name="choice_{{choice.id}}"
@@ -97,7 +97,7 @@
                         {% endfor %}
                     <input class="btn btn-success btn-block" type="submit" value="Submit">
             </form> 
-            {% endif %}
+           
 
             <!--Check here to see more details Bootstrap checkbox
              https://www.w3schools.com/bootstrap4/bootstrap_forms_inputs.asp-->
